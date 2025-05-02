@@ -5,11 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PixelFrame Studio Indonesia</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="public/images/favicon.png" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
+  <!-- Navbar -->
+  <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="text-xl font-bold tracking-wide">PixelFrame Studio</div>
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#layanan" class="hover:underline">Layanan</a>
+        <a href="#portofolio" class="hover:underline">Portofolio</a>
+        <a href="#kontak" class="hover:underline">Kontak</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden px-4 pb-4 md:hidden">
+      <a href="#home" class="block py-2">Home</a>
+      <a href="#layanan" class="block py-2">Layanan</a>
+      <a href="#portofolio" class="block py-2">Portofolio</a>
+      <a href="#kontak" class="block py-2">Kontak</a>
+    </div>
+  </header>
+
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
     <h1 class="text-4xl md:text-6xl font-bold mb-4">PixelFrame Studio</h1>
     <p class="text-lg md:text-2xl max-w-xl mb-6">Solusi Kreatif untuk Branding, Desain Digital, dan Identitas Visual yang Memikat.</p>
     <a href="#layanan" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
@@ -67,8 +99,42 @@
     </div>
   </section>
 
+  <!-- Testimoni Section -->
+<section id="testimoni" class="py-20 px-6 bg-gray-50 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-12">Apa Kata Klien Kami</h2>
+
+  <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
+      <div class="mb-4">
+        <img src="https://i.pravatar.cc/80?img=12" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
+        <p class="text-lg font-semibold text-indigo-600">Ayu Setiawan</p>
+        <p class="text-sm text-gray-500">Owner Kopi Kita</p>
+      </div>
+      <p class="text-sm text-gray-700 italic">"PixelFrame sangat membantu dalam membangun identitas brand saya. Hasil desainnya keren dan profesional!"</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
+      <div class="mb-4">
+        <img src="https://i.pravatar.cc/80?img=32" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
+        <p class="text-lg font-semibold text-indigo-600">Rico Pranata</p>
+        <p class="text-sm text-gray-500">CEO StartGro</p>
+      </div>
+      <p class="text-sm text-gray-700 italic">"Timnya responsif dan desainnya clean. Saya puas dengan landing page yang dibikin!"</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
+      <div class="mb-4">
+        <img src="https://i.pravatar.cc/80?img=25" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
+        <p class="text-lg font-semibold text-indigo-600">Maya R.</p>
+        <p class="text-sm text-gray-500">Brand Manager CitraFashion</p>
+      </div>
+      <p class="text-sm text-gray-700 italic">"Desain feed Instagram kami jadi lebih rapi dan konsisten, terima kasih PixelFrame!"</p>
+    </div>
+  </div>
+</section>
+
   <!-- CTA Section -->
-  <section class="py-20 px-6 bg-indigo-600 text-white text-center">
+  <section id="kontak" class="py-20 px-6 bg-indigo-600 text-white text-center">
     <h2 class="text-3xl font-bold mb-4">Tertarik Bekerja Sama?</h2>
     <p class="mb-6">Kami siap bantu kamu membangun identitas visual brand yang profesional.</p>
     <a href="mailto:pixelframe.indonesia@gmail.com" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
@@ -81,6 +147,15 @@
     <p>© 2025 PixelFrame Studio Indonesia</p>
     <p>Instagram: @pixelframe.indonesia | Email: pixelframe.indonesia@gmail.com</p>
   </footer>
+
+  <!-- Script Mobile Nav -->
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>
