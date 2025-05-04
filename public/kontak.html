@@ -10,7 +10,7 @@
 <body class="bg-white text-gray-800">
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-20 text-center">
+  <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
     <h1 class="text-4xl font-bold mb-2">Hubungi Kami</h1>
     <p class="text-lg">Kami siap membantu kebutuhan desain dan branding digital Anda.</p>
   </section>
@@ -26,26 +26,39 @@
           <input type="text" name="nama" placeholder="Nama Lengkap" required class="w-full p-3 border rounded-md" />
           <input type="email" name="email" placeholder="Alamat Email" required class="w-full p-3 border rounded-md" />
           <textarea name="pesan" placeholder="Tulis Pesan Anda" rows="5" required class="w-full p-3 border rounded-md"></textarea>
-          <button type="submit" class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2 px-6 rounded hover:opacity-90 transition">Kirim Pesan</button>
+          <button type="submit" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-6 rounded hover:opacity-90 transition">Kirim Pesan</button>
         </form>
       </div>
 
       <!-- Info Kontak -->
-      <div>
-        <h2 class="text-2xl font-semibold mb-4">Alamat & Sosial Media</h2>
-        <iframe src="https://maps.app.goo.gl/Q34coGP6L4To83ux9" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        <div class="mt-4 space-y-2 text-gray-700">
-          <img src="/images/home.ico"></i>Cluster Casa Arsa Cilodong Blok A No.2, Rt 003/Rw 006, Kelurahan Kalibaru, Kecamatan Cilodong, Depok, Indonesia, West Java</p>
-          <img src="/images/email.ico"></i>pixelframe.indonesia@gmail.com</p>
-          <img src="/images/phone.ico"></i>+62 857-1912-3123</p>
-          <div class="mt-4 flex gap-4">
-            <a href="#" class="text-2xl text-blue-600"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-2xl text-pink-500"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
+<div>
+  <h2 class="text-2xl font-semibold mb-4">Alamat & Sosial Media</h2>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7933.644698218216!2d106.80779200000001!3d-6.414627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e9c49d61db15%3A0x123456789abcdef!2sCluster%20Casa%20Arsa!5e0!3m2!1sen!2sid!4v1683107760000" 
+    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
 
+  <div class="mt-4 space-y-2 text-gray-700">
+    <p><img src="/images/home.ico" class="w-5 inline-block mr-2" alt="home icon">
+      Cluster Casa Arsa Cilodong Blok A No.2, Rt 003/Rw 006, Kelurahan Kalibaru, Kecamatan Cilodong, Depok, Indonesia, West Java
+    </p>
+    <p><img src="/images/email.ico" class="w-5 inline-block mr-2" alt="email icon">
+      pixelframe.indonesia@gmail.com
+    </p>
+    <p><img src="/images/phone.ico" class="w-5 inline-block mr-2" alt="phone icon">
+      +62 857-1912-3123
+    </p>
+
+    <div class="mt-4 flex gap-4">
+      <a href="https://facebook.com/" target="_blank">
+        <img src="/images/fb.ico" class="w-6" alt="Facebook">
+      </a>
+      <a href="https://instagram.com/" target="_blank">
+        <img src="/images/instagram.ico" class="w-6" alt="Instagram">
+      </a>
     </div>
+  </div>
+</div>
   </section>
 
   <!-- Mengapa Memilih Kami -->
@@ -74,5 +87,45 @@
     &copy; 2025 PixelFrame Studio Indonesia. All rights reserved.
   </footer>
 
+<!-- Script Mobile Nav -->
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.classList.remove("hidden");
+    status.textContent = "Mengirim pesan...";
+    const data = new FormData(form);
+    try {
+      const response = await fetch("https://formspree.io/f/xwpolvby", {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        window.location.href = "https://pixelframe-studio.vercel.app/thanks.html";
+      } else {
+        status.textContent = "Terjadi kesalahan saat mengirim. Silakan coba lagi.";
+      }
+    } catch (error) {
+      status.textContent = "Gagal mengirim pesan. Periksa koneksi internet Anda.";
+    }
+  });
+</script>
+
+<!-- Tombol WhatsApp -->
+<a href="https://wa.me/6285719123123" class="fixed bottom-5 right-5 flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition z-50" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M16.2 13.5c-.3-.2-1.8-.9-2.1-1s-.5-.1-.8.1-.9 1.1-1.1 1.3-.4.2-.7.1c-1.4-.7-2.4-2.4-2.5-2.6s-.1-.5.2-.8c.2-.2.5-.5.7-.7.2-.2.3-.3.4-.5s.1-.3.1-.5-.2-.5-.3-.7c-.1-.2-.8-1.9-1.1-2.6s-.6-.6-.8-.6H6.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.3 3.3 2.3 3.6 5.5 5 3.3.9 3.9.8c.6-.1 1.8-.7 2.1-1.4s.3-1.3.2-1.4c-.2-.1-.5-.2-.8-.4z"/>
+    <path d="M12 2C6.5 2 2 6.5 2 12c0 2 .5 3.9 1.5 5.6L2 22l4.5-1.5C8.1 21.5 10 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zM12 20c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-2.7.9.9-2.6-.2-.3C4.5 15.4 4 13.7 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/>
+  </svg>
+  <span class="text-sm font-semibold">Chat Kami</span>
+</a>
 </body>
 </html>
