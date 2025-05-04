@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontak | PixelFrame Studio</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </head>
@@ -15,15 +16,18 @@
   </header>
 
   <!-- FORM KONTAK -->
-  <section id="kontak" class="py-20 px-6 bg-gray-100 text-center">
-    <h2 class="text-3xl font-bold text-indigo-700 mb-8">Kontak Kami</h2>
-    <form id="contact-form" class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow space-y-6">
-      <input type="text" name="nama" placeholder="Nama Anda" class="w-full p-3 border rounded-lg" required />
-      <input type="email" name="email" placeholder="Email Aktif" class="w-full p-3 border rounded-lg" required />
-      <textarea name="pesan" rows="5" placeholder="Pesan Anda" class="w-full p-3 border rounded-lg" required></textarea>
-      <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Kirim Pesan</button>
-      <p id="form-status" class="text-sm text-green-600 hidden">Mengirim pesan...</p>
-    </form>
+  <section class=".contact-section py-16 bg-white">
+    <div class="container max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center">Hubungi Kami</h2>
+      <form action="https://formspree.io/f/xwpolvby" method="POST" class="grid gap-4">
+        <input type="text" name="nama" placeholder="Nama Anda" required class="p-3 border rounded-md" />
+        <input type="email" name="email" placeholder="Email Anda" required class="p-3 border rounded-md" />
+        <textarea name="pesan" placeholder="Pesan Anda" rows="5" required class="p-3 border rounded-md"></textarea>
+        <button type="submit" class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2 px-6 rounded-md hover:opacity-90 transition">
+          Kirim Pesan
+        </button>
+      </form>
+    </div>
   </section>
 
   <!-- INFORMASI KONTAK & SOSIAL MEDIA -->
