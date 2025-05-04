@@ -4,255 +4,269 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PixelFrame Studio Indonesia</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #333;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 2rem;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #f8f8f8, #ffffff);
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .hero img {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #2f80ed;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1c64d1;
+    }
+
+    .services {
+      padding: 60px 20px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .services h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      width: 280px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #2f80ed;
+    }
+
+    .blog-section {
+      padding: 60px 20px;
+    }
+
+    .blog-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .blogs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-card .content {
+      padding: 20px;
+    }
+
+    .blog-card .content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .blog-card .content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Script Mobile Nav */
+    /* Tombol WhatsApp */
+    .wa-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-
-  <!-- Navbar -->
-  <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="text-xl font-bold tracking-wide">PixelFrame Studio</div>
-      <nav class="hidden md:flex space-x-6 font-medium">
-        <a href="index.html#home" class="hover:underline">Home</a>
-        <a href="about.html" class="hover:underline">Tentang</a>
-        <a href="services.html" class="hover:underline">Layanan</a>
-        <a href="index.html#portofolio" class="hover:underline">Portofolio</a>
-        <a href="index.html#kontak" class="hover:underline">Kontak</a>
-        <a href="blog.html" class="hover:underline font-semibold">Blog</a>
-      </nav>      
-      <div class="md:hidden">
-        <button id="menu-toggle" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo"><strong>PixelFrame</strong></div>
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#services">Layanan</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Kontak</a>
       </div>
-    </div>
-    <div id="mobile-menu" class="hidden px-4 pb-4 md:hidden">
-      <a href="index.html#home" class="block py-2">Home</a>
-      <a href="about.html" class="block py-2">Tentang</a>
-      <a href="services.html" class="block py-2">Layanan</a>
-      <a href="index.html#portofolio" class="block py-2">Portofolio</a>
-      <a href="index.html#kontak" class="block py-2">Kontak</a>
-      <a href="blog.html" class="hover:underline font-semibold">Blog</a>
-    </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-  
-    <!-- Logo besar -->
-    <img src="/images/logo-pixelframe.jpg" alt="Logo PixelFrame" class="h-40 md:h-56 w-auto mb-6">
-  
-    <!-- Judul -->
-    <h1 class="text-3xl md:text-5xl font-bold mb-4">PixelFrame Studio</h1>
-
-    <!-- Subjudul -->
-    <p class="text-base md:text-xl max-w-xl mb-6">Solusi Kreatif untuk Branding, Desain Digital, dan Identitas Visual yang Memikat.</p>
-  
-    <a href="#layanan" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
-      Konsultasi Gratis
-    </a>
-  </section>
-
-  <!-- Services Section -->
-  <section id="layanan" class="py-20 px-6 bg-gray-100 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-12">Layanan Kami</h2>
-    <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
-      
-      <!-- Desain Logo Profesional -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Desain Logo Profesional</h3>
-        <p class="text-gray-600 text-sm">Identitas brand yang kuat dan mudah dikenali.</p>
-      </div>
-  
-      <!-- Branding Kit Lengkap -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 4H7m2-8h6M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Branding Kit Lengkap</h3>
-        <p class="text-gray-600 text-sm">Kartu nama, kop surat, warna brand, dan panduan visual.</p>
-      </div>
-  
-      <!-- Desain Website -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Desain Website</h3>
-        <p class="text-gray-600 text-sm">Landing page modern yang responsif dan cepat.</p>
-      </div>
-  
-      <!-- Feed Instagram -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m0 0v2a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Feed Instagram</h3>
-        <p class="text-gray-600 text-sm">Konten visual yang estetik dan konsisten.</p>
-      </div>
-  
-      <!-- Company Profile -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8m-8-4h8m-2 12H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v12z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Company Profile</h3>
-        <p class="text-gray-600 text-sm">Desain profil bisnis untuk print & digital presentasi.</p>
-      </div>
-  
-      <!-- Social Media Management -->
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-        <div class="flex justify-center mb-4 text-indigo-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M3 9h18M9 21v-6m6 6v-4m-6-4V3m6 6v-2" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-indigo-600">Social Media Management</h3>
-        <p class="text-gray-600 text-sm">Kelola akun bisnis dengan konten rutin & strategi.</p>
-      </div>
-  
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Kreativitas Tanpa Batas untuk Bisnis Anda</h1>
+      <p>Kami bantu bangun branding profesional dan desain digital untuk UMKM & startup seperti Anda.</p>
+      <a href="#contact" class="btn">Konsultasi Gratis</a>
     </div>
+    <img src="images/hero-illustration.png" alt="Desain Ilustrasi PixelFrame" />
   </section>
-  
 
-  <!-- Portfolio Section -->
-  <section id="portofolio" class="py-20 px-6 bg-white text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-12">Portofolio</h2>
-    <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
-      <div class="bg-gray-100 p-6 rounded-lg shadow">
-        <h3 class="text-lg font-semibold text-indigo-600 mb-2">Logo UMKM Kopi</h3>
-        <p class="text-sm text-gray-600">Logo & branding untuk bisnis kopi lokal.</p>
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Layanan Kami</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Desain Logo</h3>
+        <p>Logo profesional sesuai karakter brand Anda.</p>
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow">
-        <h3 class="text-lg font-semibold text-indigo-600 mb-2">Landing Page Startup</h3>
-        <p class="text-sm text-gray-600">Website modern untuk startup keuangan.</p>
+      <div class="card">
+        <h3>Branding Kit</h3>
+        <p>Paket lengkap brand guideline, warna, font, dan aset visual lainnya.</p>
       </div>
-      <div class="bg-gray-100 p-6 rounded-lg shadow">
-        <h3 class="text-lg font-semibold text-indigo-600 mb-2">Instagram Feed Fashion</h3>
-        <p class="text-sm text-gray-600">Konten visual IG untuk brand fashion.</p>
+      <div class="card">
+        <h3>Website & Profil</h3>
+        <p>Desain & pengembangan website dan company profile modern.</p>
       </div>
     </div>
   </section>
 
- <!-- Testimoni Section -->
-<section id="testimoni" class="py-20 px-6 bg-gray-50 text-center">
-  <h2 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-12">Apa Kata Klien Kami</h2>
-
-  <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-      <div class="mb-4">
-        <img src="https://i.pravatar.cc/80?img=12" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
-        <p class="text-lg font-semibold text-indigo-600">Ayu Setiawan</p>
-        <p class="text-sm text-gray-500">Owner Kopi Kita</p>
+  <!-- Blog Section -->
+  <section class="blog-section" id="blog">
+    <h2>Artikel Terbaru</h2>
+    <div class="blogs">
+      <div class="blog-card">
+        <img src="images/blog/artikel-logo.jpg" alt="Tips Logo Branding" />
+        <div class="content">
+          <h4><a href="artikel-logo.html">Pentingnya Logo dalam Branding Bisnis</a></h4>
+          <p>Logo bukan sekadar gambar, tapi identitas pertama bisnis Anda.</p>
+        </div>
       </div>
-      <p class="text-sm text-gray-700 italic">"PixelFrame sangat membantu dalam membangun identitas brand saya. Hasil desainnya keren dan profesional!"</p>
     </div>
-
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-      <div class="mb-4">
-        <img src="https://i.pravatar.cc/80?img=32" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
-        <p class="text-lg font-semibold text-indigo-600">Rico Pranata</p>
-        <p class="text-sm text-gray-500">CEO StartGro</p>
-      </div>
-      <p class="text-sm text-gray-700 italic">"Timnya responsif dan desainnya clean. Saya puas dengan landing page yang dibikin!"</p>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-      <div class="mb-4">
-        <img src="https://i.pravatar.cc/80?img=25" alt="Foto Klien" class="w-14 h-14 rounded-full mx-auto mb-2" />
-        <p class="text-lg font-semibold text-indigo-600">Maya R.</p>
-        <p class="text-sm text-gray-500">Brand Manager CitraFashion</p>
-      </div>
-      <p class="text-sm text-gray-700 italic">"Desain feed Instagram kami jadi lebih rapi dan konsisten, terima kasih PixelFrame!"</p>
-    </div>
-  </div>
-</section>
-
-  <!-- Contact Form -->
-  <section id="kontak" class="py-20 px-6 bg-gray-100 text-center">
-    <h2 class="text-3xl font-bold text-indigo-700 mb-8">Kontak Kami</h2>
-    <form id="contact-form" class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow space-y-6">
-      <input type="text" name="nama" placeholder="Nama Anda" class="w-full p-3 border rounded-lg" required />
-      <input type="email" name="email" placeholder="Email Aktif" class="w-full p-3 border rounded-lg" required />
-      <textarea name="pesan" rows="5" placeholder="Pesan Anda" class="w-full p-3 border rounded-lg" required></textarea>
-      <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition">Kirim Pesan</button>
-      <p id="form-status" class="text-sm text-green-600 hidden">Mengirim pesan...</p>
-    </form>
-  </section>
-
- <!-- CTA Section -->
-  <section class="py-20 px-6 bg-indigo-600 text-white text-center">
-    <h2 class="text-3xl font-bold mb-4">Tertarik Bekerja Sama?</h2>
-    <p class="mb-6">Kami siap bantu kamu membangun identitas visual brand yang profesional.</p>
-    <a href="mailto:pixelframe.indonesia@gmail.com" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
-      Hubungi Kami Sekarang
-    </a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6 text-sm">
-    <p>© 2025 PixelFrame Studio Indonesia</p>
-    <p>Instagram: @pixelframe.indonesia | Email: pixelframe.indonesia@gmail.com</p>
+  <footer>
+    <p>&copy; 2025 PixelFrame Studio Indonesia. All rights reserved.</p>
   </footer>
 
   <!-- Script Mobile Nav -->
-  <script>
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("mobile-menu");
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      status.classList.remove("hidden");
-      status.textContent = "Mengirim pesan...";
-      const data = new FormData(form);
-      try {
-        const response = await fetch("https://formspree.io/f/xwpolvby", {
-          method: "POST",
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-          window.location.href = "https://pixelframe-studio.vercel.app/thanks.html";
-        } else {
-          status.textContent = "Terjadi kesalahan saat mengirim. Silakan coba lagi.";
-        }
-      } catch (error) {
-        status.textContent = "Gagal mengirim pesan. Periksa koneksi internet Anda.";
-      }
-    });
-  </script>
+  <!-- (Kosong untuk saat ini) -->
 
   <!-- Tombol WhatsApp -->
-  <a href="https://wa.me/6285719123123" class="fixed bottom-5 right-5 flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition z-50" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M16.2 13.5c-.3-.2-1.8-.9-2.1-1s-.5-.1-.8.1-.9 1.1-1.1 1.3-.4.2-.7.1c-1.4-.7-2.4-2.4-2.5-2.6s-.1-.5.2-.8c.2-.2.5-.5.7-.7.2-.2.3-.3.4-.5s.1-.3.1-.5-.2-.5-.3-.7c-.1-.2-.8-1.9-1.1-2.6s-.6-.6-.8-.6H6.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.3 3.3 2.3 3.6 5.5 5 3.3.9 3.9.8c.6-.1 1.8-.7 2.1-1.4s.3-1.3.2-1.4c-.2-.1-.5-.2-.8-.4z"/>
-      <path d="M12 2C6.5 2 2 6.5 2 12c0 2 .5 3.9 1.5 5.6L2 22l4.5-1.5C8.1 21.5 10 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zM12 20c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-2.7.9.9-2.6-.2-.3C4.5 15.4 4 13.7 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/>
-    </svg>
-    <span class="text-sm font-semibold">Chat Kami</span>
-  </a>
+  <a class="wa-button" href="https://wa.me/6281234567890" target="_blank">💬</a>
 </body>
 </html>
